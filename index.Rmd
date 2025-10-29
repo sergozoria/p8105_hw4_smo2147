@@ -1,7 +1,9 @@
 ---
-title: "Holy cow!"
+title: "About me"
 ---
 
-### I have a webpage!
+I am an MPH candidate'26 in the Department of Population and Family Health at the Columbia University Mailman School of Public Health. At Mailman, I am also getting targeted training in research design and data analysis through the Public Health Research Methods certificate. 
 
-And I can put all kinds of stuff on it!
+Prior to joining the Mailman community, I worked in grant management and operations of global health research funds, as well as coordinating NIH-funded research in HIV prevention and management in the greater New York City area and abroad at Clínica de Familia La Romana in the Dominican Republic. 
+
+I received my Bachelor of Science in Applied Psychology from New York University. 
