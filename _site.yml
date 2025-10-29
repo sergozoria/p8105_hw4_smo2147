@@ -1,6 +1,5 @@
 name: "Sergio Ozoria Ramírez"
 output_dir: "."
-include: ["files"]
 navbar:
   title: "Sergio Ozoria Ramírez"
   right:
