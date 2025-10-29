@@ -6,4 +6,9 @@ output:
     toc_float: true
 ---
 
-files/sozoria_research_cv_092625.pdf
+<object data="files/sozoria_research_cv_092526.pdf" type="application/pdf" width="100%" height="800px">
+<p>
+It appears your browser does not support embedding PDFs.
+You can <a href="files/sozoria_research_cv_092526.pdf">download the PDF file instead</a>.
+</p>
+</object>
