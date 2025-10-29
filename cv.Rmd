@@ -6,3 +6,7 @@ output:
     toc_float: true
 ---
 
+```{r}
+<embed src="files/sozoria_research_cv_092625.pdf" type="application/pdf" width="100%" height="800px" />
+```
+
