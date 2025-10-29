@@ -9,13 +9,13 @@ navbar:
     - text: "Plots"
       href: plots.html
     - icon: fa-envelope fa-lg
-      href: mailto:smo2147@cumc.columbia.edu>
+      href: mailto:smo2147@cumc.columbia.edu
       text: "Get in touch"
     - icon: fa-github fa-lg
-      href: https://github.com/sergozoria
+      href: "https://github.com/sergozoria"
       text: "GitHub Profile"
     - icon: fa-linkedin fa-lg
-      href: https://www.linkedin.com/in/sergio-ozoria-ram%C3%ADrez-1b9912121/
+      href: "https://www.linkedin.com/in/sergio-ozoria-ram%C3%ADrez-1b9912121/"
       text: "LinkedIn"
 output:
   html_document:
