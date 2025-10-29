@@ -4,7 +4,7 @@ navbar:
   title: "Sergio Ozoria Ramírez"
   right:
     - text: "Curriculum Vitae"
-      icon: fa-file-pdf
+      icon: fa-file-pdf-o
       href: cv.html
     - text: "Plots"
       href: plots.html
