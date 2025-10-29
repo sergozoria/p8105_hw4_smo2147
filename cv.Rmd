@@ -1,10 +1,8 @@
 ---
-title: "About this site"
+title: "Curriculum Vitae"
+output: 
   html_document:
     toc: true
     toc_float: true
 ---
 
-### About Serg's Studios
-
-Serg's Studios is a space dedicated to exploring the work of a young, queer, Dominican man born and raised in the Dominican Republic, who la
