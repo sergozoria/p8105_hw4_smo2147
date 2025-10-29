@@ -2,13 +2,14 @@
 title: "About me"
 ---
 
-
-```{r, fig.align='center', out.width='70%', echo=FALSE}
+```{r, fig.align='center', out.width='60%', echo=FALSE}
 knitr::include_graphics("images/grad_pic_21.jpg")
 ```
 
-I am an MPH candidate'26 in the Department of Population and Family Health at the Columbia University Mailman School of Public Health. At Mailman, I am also getting targeted training in research design and data analysis through the Public Health Research Methods certificate. 
+I am an MPH candidate'26 in the [Department of Population and Family Health](https://www.publichealth.columbia.edu/academics/departments/population-family-health) at the Columbia University Mailman School of Public Health. At Mailman, I am also getting targeted training in advanced research design and data analysis through the [Public Health Research Methods certificate](https://www.publichealth.columbia.edu/academics/degrees/master-public-health/certificates/public-health-research-methods). 
 
-Prior to joining the Mailman community, I worked in grant management and operations of global health research funds, as well as coordinating NIH-funded research in HIV prevention and management in the greater New York City area and abroad at Clínica de Familia La Romana in the Dominican Republic. 
+I received my Bachelor of Science in Applied Psychology from New York University, where I gained experience in research design and data analysis in the social sciences. 
 
-I received my Bachelor of Science in Applied Psychology from New York University. 
+Prior to joining the Mailman community, I worked in grant management and operations at [Global TIES for Children](https://globaltiesforchildren.nyu.edu/), as well as coordinating NIH-funded research in HIV prevention and management in the greater New York City area and abroad at [Clínica de Familia La Romana](https://clinicadefamilia.org.do/en/) in the Dominican Republic.
+
+To learn more about my professional and academic background, please visit take a look at my [curriculum vitae](cv.html) or follow me on [LinkedIn](https://www.linkedin.com/in/sergio-ozoria-ram%C3%ADrez-1b9912121/).

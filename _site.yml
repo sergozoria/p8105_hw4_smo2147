@@ -3,6 +3,8 @@ output_dir: "."
 navbar:
   title: "Sergio Ozoria Ramírez"
   right:
+    - text: "About me"
+      href: index.html
     - text: "Curriculum Vitae"
       icon: fa-file-pdf-o
       href: cv.html
