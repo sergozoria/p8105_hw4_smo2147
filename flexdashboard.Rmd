@@ -2,7 +2,7 @@
 title: "Flex dashboard"
 output: 
   flexdashboard::flex_dashboard:
-    orientation: rows
+    orientation: columns
     vertical_layout: fill
 ---
 I used the Instacart dataset to create the following dashboards for my P8105 Data Science I class
@@ -50,7 +50,7 @@ aisle_orders |>
 Column {data-width=350}
 -----------------------------------------------------------------------
 
-### Chart B
+### Mean Order Hour By Weekeday and Products
 
 ```{r}
 summ_instacart = instacart |> 
@@ -107,7 +107,7 @@ plot_ly(
     legend = list(title = list(text = "Product")))
 ```
 
-### Chart C
+### Highest-Ordered Products by Hour and Weekday
 
 ```{r}
 instacart_clean <- instacart |>
