@@ -1,0 +1,162 @@
+---
+title: "Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(plotly)
+library(p8105.datasets)
+
+data("instacart")
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Order Counts (for Aisles with >10 Orders)
+
+```{r}
+aisle_orders = instacart |> 
+  count(aisle, name = "n") |> 
+  filter(n > 10000) |> 
+  arrange(desc(n)) |> 
+  mutate(aisle = fct_reorder(aisle, n))
+
+aisle_orders |> 
+  plot_ly(
+    x = ~n, y = ~aisle, type = "bar", orientation = "h",
+    marker = list(color = ~n,
+                  colorscale = "Rainbow",
+                  showscale = TRUE
+                  ),
+    hovertemplate = paste(
+      "<b>Aisle:<b> %{y}<br>",
+      "<b>Order Count:<b> %{x}<extra></extra>"
+    )
+  ) |> 
+  layout(
+    title = list(text = "Order Counts (for Aisles with >10k Orders)", x = 0.5),
+    xaxis = list(title = "Order Count"),
+    yaxis = list(title = "Aisle")
+  )
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+summ_instacart = instacart |> 
+  filter(product_name %in% c(
+    "Pink Lady Apples",
+    "Coffee Ice Cream",
+    "Banana",
+    "Organic Strawberries",
+    "Bag of Organic Bananas")) |> 
+  group_by(product_name, order_dow) |> 
+  summarize(
+    mean_hour = mean(order_hour_of_day, na.rm = TRUE),
+n_orders = n()) |> 
+  ungroup() |> 
+  mutate(order_dow = recode(order_dow,
+   `0` = "Sunday",
+   `1` = "Monday",
+   `2` = "Tuesday",
+   `3` = "Wednesday",
+   `4` = "Thursday",
+   `5` = "Friday",
+   `6` = "Saturday",
+  )) |> 
+  mutate(
+    order_dow = factor(order_dow,
+                       levels = c("Sunday", "Monday", "Tuesday", 
+                                  "Wednesday", "Thursday", 
+                                  "Friday", "Saturday")))
+plot_ly(
+  data = summ_instacart,
+  x = ~order_dow,
+  y = ~mean_hour,
+  color = ~product_name,
+  text = ~product_name,
+  type = "scatter",
+  mode = "lines+markers",
+  marker = list(size = 10),
+  line = list(width = 3),
+   customdata = ~n_orders,
+  hovertemplate = paste(
+    "<b>Product:</b> %{text}<br>",
+    "<b>Day:</b> %{x}<br>",
+    "<b>Mean Hour Ordered:</b> %{y:.1f}<br>",
+    "<b>Total Orders:</b> %{customdata}<extra></extra>"
+  )
+) |> 
+  layout(
+    title = list(
+      text = "Mean order hour by weekday for Coffee Ice Cream and Pink Lady Apples",
+      x = 0.5
+    ),
+    xaxis = list(title = "Day of Week"),
+    yaxis = list(title = "Mean Order Hour (0-23)"),
+    legend = list(title = list(text = "Product")))
+```
+
+### Chart C
+
+```{r}
+instacart_clean <- instacart |>
+  mutate(order_dow = recode(order_dow,
+    `0` = "Sunday",
+    `1` = "Monday",
+    `2` = "Tuesday",
+    `3` = "Wednesday",
+    `4` = "Thursday",
+    `5` = "Friday",
+    `6` = "Saturday"
+  ))
+
+orders_by_hour = instacart_clean |>
+  count(order_dow, order_hour_of_day, aisle, product_name, sort = TRUE)
+
+top_per_hour_day = orders_by_hour |>
+  group_by(order_dow, order_hour_of_day) |>
+  slice_max(n, n = 1) |>
+  ungroup()
+
+plot_ly(
+  data = top_per_hour_day,
+  x = ~order_hour_of_day,
+  y = ~n,
+  text = ~product_name,
+  frame = ~order_dow,         
+  type = "bar",
+  hovertemplate = paste(
+    "<b>Hour:</b> %{x}:00<br>",
+    "<b>Top Product:</b> %{text}<br>",
+    "<b>Aisle:</b> %{customdata}<br>",
+    "<b>Total Orders:</b> %{y}<extra></extra>"
+  ),
+  customdata = ~aisle
+) |>
+  layout(
+    title = list(
+      text = "Highest-Ordered Product by Hour (Slide Through Days)",
+      x = 0.5
+    ),
+    xaxis = list(title = "Hour of Day (0–23)"),
+    yaxis = list(title = "Number of Orders"),
+    updatemenus = list(
+      list(type = "buttons", showactive = FALSE,
+           buttons = list(
+             list(label = "Play", method = "animate", args = list(NULL, list(frame = list(duration = 1000, redraw = TRUE), fromcurrent = TRUE))),
+             list(label = "Pause", method = "animate", args = list(NULL, list(mode = "immediate", frame = list(duration = 0), transition = list(duration = 0))))
+           ))
+    )
+  )
+```
+
