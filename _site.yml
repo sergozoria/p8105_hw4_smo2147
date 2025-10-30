@@ -8,8 +8,8 @@ navbar:
     - text: "Curriculum Vitae"
       icon: fa-file-pdf-o
       href: cv.html
-    - text: "Plots"
-      href: plots.html
+    - text: "Flex dashboard"
+      href: flexdashboard.html
     - icon: fa-envelope fa-lg
       href: mailto:smo2147@cumc.columbia.edu
       text: "Get in touch"
